@@ -12,10 +12,6 @@ export const Header: React.FC = async () => {
           <IconLogo className={cn('w-5 h-5')} />
           <span className="sr-only">Anne Kerdy</span>
         </a>
-        {/* Phrase d'introduction */}
-        <p className="text-lg font-semibold mt-2">
-        Anne Kerdi répond à toutes vos questions sur </br> la Bretagne
-        </p>
       </div>
       <div className="flex gap-0.5">
         <ModeToggle />

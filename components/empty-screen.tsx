@@ -11,12 +11,12 @@ const exampleMessages = [
     message: 'Comment interagissez-vous avec vos abonnés et son importance de cette interaction pour vous Anne Kerdi ?'
   },
   {
-    heading: 'Quelles sont les caractéristiques de la Bretagne que vous aimez le plus mettre en avant dans vos publications de Anne Kerdi ?',
-    message: 'Quelles sont les caractéristiques de la Bretagne que vous aimez le plus mettre en avant dans vos publications de Anne Kerdi ?'
+    heading: 'How does the Vercel AI SDK work?',
+    message: 'How does the Vercel AI SDK work?'
   },
   {
-    heading: 'Quelles sont les caractéristiques de la Bretagne que vous aimez le plus mettre en avant dans vos publications de Anne Kerdi ?',
-    message: 'Quelles sont les caractéristiques de la Bretagne que vous aimez le plus mettre en avant dans vos publications de Anne Kerdi ?'
+    heading: 'Tesla vs Rivian',
+    message: 'Tesla vs Rivian'
   }
 ]
 export function EmptyScreen({

@@ -26,7 +26,7 @@ export function AnswerSection({
   return (
     <div>
       {content.length > 0 ? (
-        <Section title={hasHeader ? 'test' : undefined}>
+        <Section title={hasHeader ? 'Anne Kerdi vous répond' : undefined}>
           <BotMessage content={content} />
         </Section>
       ) : (

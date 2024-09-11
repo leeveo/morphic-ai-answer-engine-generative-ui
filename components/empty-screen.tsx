@@ -3,12 +3,12 @@ import { ArrowRight } from 'lucide-react'
 
 const exampleMessages = [
   {
-    heading: 'What is GPT-4o mini?',
-    message: 'What is GPT-4o mini?'
+    heading: 'Quelles sont les caractéristiques de la Bretagne que vous aimez le plus mettre en avant dans vos publications de Anne Kerdi ?',
+    message: 'Quelles sont les caractéristiques de la Bretagne que vous aimez le plus mettre en avant dans vos publications de Anne Kerdi ?'
   },
   {
-    heading: 'Why is Nvidia growing rapidly?',
-    message: 'Why is Nvidia growing rapidly?'
+    heading: 'Comment interagissez-vous avec vos abonnés et son importance de cette interaction pour vous Anne Kerdi ?',
+    message: 'Comment interagissez-vous avec vos abonnés et son importance de cette interaction pour vous Anne Kerdi ?'
   },
   {
     heading: 'How does the Vercel AI SDK work?',

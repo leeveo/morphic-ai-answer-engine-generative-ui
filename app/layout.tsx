@@ -1,34 +1,21 @@
-import type { Metadata, Viewport } from 'next'
-import { Inter as FontSans } from 'next/font/google'
-import './globals.css'
+import React from 'react'
+import { ThemeProvider } from 'next-themes'
 import { cn } from '@/lib/utils'
-import { ThemeProvider } from '@/components/theme-provider'
+import { AppStateProvider } from '@/context/app-state'
 import Header from '@/components/header'
+import Sidebar from '@/components/sidebar'
 import Footer from '@/components/footer'
-import { Sidebar } from '@/components/sidebar'
-import { Toaster } from '@/components/ui/sonner'
-import { AppStateProvider } from '@/lib/utils/app-state'
+import { Toaster } from '@/components/ui/toaster'
+import { fontSans } from '@/lib/fonts'
 
-const fontSans = FontSans({
-  subsets: ['latin'],
-  variable: '--font-sans'
-})
-
-const title = 'Adeliade'
-const description =
-  'Anne Kerdi, vous répond.'
-
-export const metadata: Metadata = {
-  metadataBase: new URL('https://adeliade.fr'),
-  title,
-  description,
+export const metadata = {
   openGraph: {
-    title,
-    description
+    title: 'Your Title',
+    description: 'Your Description'
   },
   twitter: {
-    title,
-    description,
+    title: 'Your Title',
+    description: 'Your Description',
     card: 'summary_large_image',
     creator: '@miiura'
   }
@@ -57,7 +44,9 @@ export default function RootLayout({
         >
           <AppStateProvider>
             <Header />
-            {children}
+            <main className="mt-300px"> {/* Ajout d'une marge supérieure pour compenser la hauteur du header */}
+              {children}
+            </main>
             <Sidebar />
             <Footer />
             <Toaster />

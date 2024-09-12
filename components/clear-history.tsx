@@ -28,12 +28,12 @@ export function ClearHistory({ empty }: ClearHistoryProps) {
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger asChild>
         <Button variant="outline" className="w-full" disabled={empty}>
-          Clear History
+          Effacer l'historique
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>Etes vous sure ?</AlertDialogTitle>
           <AlertDialogDescription>
             This action cannot be undone. This will permanently delete your
             history and remove your data from our servers.

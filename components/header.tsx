@@ -13,7 +13,7 @@ export const Header: React.FC = async () => {
           <span className="sr-only">Anne Kerdy test</span>
         </a>
         <p className="mt-2 text-sm font-semibold">Bienvenue en Bretagne!</p>
-        <img src="/public/placeholder-image.png" alt="Bretagne" className="mt-1 w-16 h-16 object-cover rounded-full" />
+        <img src="path_to_image.jpg" alt="Bretagne" className="mt-1 w-16 h-16 object-cover rounded-full" />
       </div>
      
       <div className="flex gap-0.5">

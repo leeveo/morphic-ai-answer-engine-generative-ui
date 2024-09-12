@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import { SiInstagram, SiLinkedin, SiYoutube } from 'react-icons/si'
+import { SiInstagram, SiLinkedin } from 'react-icons/si'
+import { MdOutlineWebAsset } from 'react-icons/md'
 import { Button } from './ui/button'
 
 const Footer: React.FC = () => {
@@ -32,8 +33,8 @@ const Footer: React.FC = () => {
             size={'icon'}
             className="text-muted-foreground/50"
           >
-            <Link href="https://www.youtube.com/channel/UC1234567890" target="_blank">
-              <SiYoutube size={18} />
+            <Link href="https://www.adeliade.ai" target="_blank">
+              <MdOutlineWebAsset size={18} />
             </Link>
           </Button>
         </div>

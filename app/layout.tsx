@@ -14,12 +14,12 @@ const fontSans = FontSans({
   variable: '--font-sans'
 })
 
-const title = 'Morphic'
+const title = 'Adeliade'
 const description =
-  'A fully open-source AI-powered answer engine with a generative UI.'
+  'Anne Kerdi, vous répond.'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://morphic.sh'),
+  metadataBase: new URL('https://adeliade.fr'),
   title,
   description,
   openGraph: {
@@ -47,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <body className={cn('font-sans antialiased', fontSans.variable)}>
         <ThemeProvider
           attribute="class"

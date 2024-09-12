@@ -9,7 +9,7 @@ export type AnswerSectionProps = {
 
 export function AnswerSectionGenerated({ result }: AnswerSectionProps) {
   return (
-    <div style={{ marginTop: '300px' }}>
+    <div>
       <Section title="Answer">
         <BotMessage content={result} />
       </Section>

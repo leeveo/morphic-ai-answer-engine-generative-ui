@@ -57,7 +57,7 @@ export const SearchResultsImageSection: React.FC<
   }, [api, selectedIndex])
 
   if (!images || images.length === 0) {
-    return <div className="text-muted-foreground">No images found</div>
+    return <div className="text-muted-foreground">Pas d images trouvee</div>
   }
 
   // If enabled the include_images_description is true, the images will be an array of { url: string, description: string }
@@ -106,7 +106,7 @@ export const SearchResultsImageSection: React.FC<
           </DialogTrigger>
           <DialogContent className="sm:max-w-3xl max-h-[80vh] overflow-auto">
             <DialogHeader>
-              <DialogTitle>Search Images</DialogTitle>
+              <DialogTitle>Rechercher des Images</DialogTitle>
               <DialogDescription className="text-sm">{query}</DialogDescription>
             </DialogHeader>
             <div className="py-4">
@@ -133,15 +133,15 @@ export const SearchResultsImageSection: React.FC<
                 </CarouselContent>
                 <div className="absolute inset-8 flex items-center justify-between p-4">
                   <CarouselPrevious className="w-10 h-10 rounded-full shadow focus:outline-none">
-                    <span className="sr-only">Previous</span>
+                    <span className="sr-only">Precedent</span>
                   </CarouselPrevious>
                   <CarouselNext className="w-10 h-10 rounded-full shadow focus:outline-none">
-                    <span className="sr-only">Next</span>
+                    <span className="sr-only">Suivant</span>
                   </CarouselNext>
                 </div>
               </Carousel>
               <div className="py-2 text-center text-sm text-muted-foreground">
-                {current} of {count}
+                {current} sur {count}
               </div>
             </div>
           </DialogContent>

@@ -1,5 +1,6 @@
-import { Button } from '@/components/ui/button'
-import { ArrowRight } from 'lucide-react'
+import React from 'react'
+import { Button } from './button'
+import { ArrowRight } from 'react-feather'
 
 const exampleMessages = [
   {
@@ -19,6 +20,7 @@ const exampleMessages = [
     message: 'Tesla vs Rivian'
   }
 ]
+
 export function EmptyScreen({
   submitMessage,
   className
@@ -29,6 +31,13 @@ export function EmptyScreen({
   return (
     <div className={`mx-auto w-full transition-all ${className}`}>
       <div className="bg-background p-2">
+        <div className="flex-1 text-center">
+          <h1 className="text-lg font-semibold">Poser Vos Questions à Anne Kerdi</h1>
+          <img src="/images/placeholder-image.png" alt="Photo de bienvenue" className="mx-auto mt-2 w-64 h-64 rounded-full" />
+          <p className="mt-2 text-base">
+            Je suis Anne Kerdi, posez-moi vos questions sur la région Bretagne et je me ferai une joie de vous renseigner.
+          </p>
+        </div>
         <div className="mt-4 flex flex-col items-start space-y-2 mb-4">
           {exampleMessages.map((message, index) => (
             <Button

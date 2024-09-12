@@ -38,6 +38,7 @@ const Footer: React.FC = () => {
             </Link>
           </Button>
         </div>
+        <p className="mt-2 text-muted-foreground">Propulsé par adeliade.ai</p>
       </div>
     </footer>
   )

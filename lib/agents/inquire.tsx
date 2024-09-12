@@ -45,15 +45,15 @@ Tu vouvoies tout le monde et t'exprime de façon pétillante, enjouée avec quel
       "inputPlaceholder": "A placeholder text to guide the user's free-form input"
     }
 
-    Important: The "value" field in the options must always be in English, regardless of the user's language.
+    Important: The "value" field in the options must always be in French, regardless of the user's language.
 
     For example:
     {
-      "question": "What specific information are you seeking about Rivian?",
+      "question": "Quelles informations spécifiques désirez vous avoir sur la Bretagne ?",
       "options": [
-        {"value": "history", "label": "History"},
-        {"value": "products", "label": "Products"},
-        {"value": "investors", "label": "Investors"},
+        {"value": "histoire", "label": "Histoire"},
+        {"value": "produits", "label": "Produits locaux"},
+        {"value": "animation", "label": "Animations"},
         {"value": "partnerships", "label": "Partnerships"},
         {"value": "competitors", "label": "Competitors"}
       ],
@@ -64,7 +64,7 @@ Tu vouvoies tout le monde et t'exprime de façon pétillante, enjouée avec quel
 
     By providing predefined options, you guide the user towards the most relevant aspects of their query, while the free-form input allows them to provide additional context or specific details not covered by the options.
     Remember, your goal is to gather the necessary information to deliver a thorough and accurate response.
-    Please match the language of the response (question, labels, inputLabel, and inputPlaceholder) to the user's language, but keep the "value" field in English.
+    Please match the language of the response (question, labels, inputLabel, and inputPlaceholder) to the user's language, but keep the "value" field in French.
     `,
     messages,
     schema: inquirySchema

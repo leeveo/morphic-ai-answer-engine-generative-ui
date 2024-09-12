@@ -13,6 +13,9 @@ export const Header: React.FC = async () => {
           <span className="sr-only">Anne Kerdy</span>
         </a>
       </div>
+      <div className="flex-1 text-center">
+        <h1 className="text-lg font-semibold">Bienvenue sur notre site</h1>
+      </div>
       <div className="flex gap-0.5">
         <ModeToggle />
         <HistoryContainer location="header" />

@@ -44,9 +44,8 @@ export default function RootLayout({
         >
           <AppStateProvider>
             <Header />
-            <main className="mt-300px"> {/* Ajout d'une marge supérieure pour compenser la hauteur du header */}
-              {children}
-            </main>
+            {children}
+            
             <Sidebar />
             <Footer />
             <Toaster />

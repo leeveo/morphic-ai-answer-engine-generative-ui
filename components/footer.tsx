@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="w-fit p-1 md:p-2 fixed bottom-0 right-0">
       <div className="flex flex-col items-end">
-        <p className="mb-2 text-muted-foreground">Suivez moi sur les réseaux sociaux</p>
+        <p className="mb-2 text-sm italic text-muted-foreground">Suivez moi sur les réseaux sociaux</p>
         <div className="flex justify-end">
           <Button
             variant={'ghost'}
@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
             </Link>
           </Button>
         </div>
-        <p className="mt-2 text-muted-foreground">Propulsé par adeliade.ai</p>
+        <p className="mt-2 text-sm text-muted-foreground">Propulsé par adeliade.ai</p>
       </div>
     </footer>
   )

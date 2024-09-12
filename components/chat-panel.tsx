@@ -71,10 +71,7 @@ const ChatPanel = () => {
       }
     >
       <form onSubmit={handleSubmit} className="max-w-2xl w-full px-6">
-        <div className="mb-4 text-center">
-          <p className="text-lg font-semibold">Bienvenue dans le chat de la Bretagne!</p>
-          <img src="path_to_image.jpg" alt="Bretagne" className="mx-auto mt-2 w-32 h-32 object-cover rounded-full" />
-        </div>
+       
         <div className="relative flex items-center w-full">
           <Textarea
             ref={inputRef}

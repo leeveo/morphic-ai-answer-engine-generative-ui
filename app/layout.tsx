@@ -1,21 +1,34 @@
-import React from 'react'
-import { ThemeProvider } from 'next-themes'
+import type { Metadata, Viewport } from 'next'
+import { Inter as FontSans } from 'next/font/google'
+import './globals.css'
 import { cn } from '@/lib/utils'
-import { AppStateProvider } from '@/context/app-state'
+import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/header'
-import Sidebar from '@/components/sidebar'
 import Footer from '@/components/footer'
-import { Toaster } from '@/components/ui/toaster'
-import { fontSans } from '@/lib/fonts'
+import { Sidebar } from '@/components/sidebar'
+import { Toaster } from '@/components/ui/sonner'
+import { AppStateProvider } from '@/lib/utils/app-state'
 
-export const metadata = {
+const fontSans = FontSans({
+  subsets: ['latin'],
+  variable: '--font-sans'
+})
+
+const title = 'Morphic'
+const description =
+  'A fully open-source AI-powered answer engine with a generative UI.'
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://morphic.sh'),
+  title,
+  description,
   openGraph: {
-    title: 'Your Title',
-    description: 'Your Description'
+    title,
+    description
   },
   twitter: {
-    title: 'Your Title',
-    description: 'Your Description',
+    title,
+    description,
     card: 'summary_large_image',
     creator: '@miiura'
   }
@@ -34,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={cn('font-sans antialiased', fontSans.variable)}>
         <ThemeProvider
           attribute="class"
@@ -45,7 +58,6 @@ export default function RootLayout({
           <AppStateProvider>
             <Header />
             {children}
-            
             <Sidebar />
             <Footer />
             <Toaster />

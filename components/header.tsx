@@ -14,7 +14,8 @@ export const Header: React.FC = async () => {
         </a>
       </div>
       <div className="flex-1 text-center">
-        <h1 className="text-lg font-semibold">Bienvenue sur notre site</h1>
+        <h1 className="text-lg font-semibold">Poser Vos Questions à Anne Kerdi</h1>
+        <img src="/public/images/placeholder-image.png" alt="Photo de bienvenue" className="mx-auto mt-2 w-16 h-16 rounded-full" />
       </div>
       <div className="flex gap-0.5">
         <ModeToggle />

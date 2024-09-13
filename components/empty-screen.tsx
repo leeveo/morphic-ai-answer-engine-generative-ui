@@ -1,3 +1,6 @@
+import { Button } from '@/components/ui/button'
+import { ArrowRight } from 'lucide-react'
+
 const exampleMessages = [
   {
     heading: 'Quelle est ta plage bretonne préférée et pourquoi ?',

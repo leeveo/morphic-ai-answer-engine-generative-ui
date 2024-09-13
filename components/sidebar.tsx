@@ -5,11 +5,11 @@ import HistoryContainer from './history-container';
 
 // Liste des noms de fichiers d'images dans le dossier public/images
 const imageFilenames = [
-  'image1.jpg',
-  'image2.jpg',
-  'image3.jpg',
-  'image4.jpg',
-  'image5.jpg'
+  'image001.jpg',
+  'image002.jpg',
+  'image003.jpg',
+  'image004.jpg',
+  'image005.jpg'
 ];
 
 function getRandomImages(imageArray: string[], count: number) {

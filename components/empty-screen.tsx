@@ -31,6 +31,7 @@ export function EmptyScreen({
     <div className={`mx-auto w-full transition-all ${className}`}>
       <div className="bg-background p-2">
         <div className="mt-4 flex flex-col items-start space-y-2 mb-4">
+          <img src="/images/placeholder-image.png" alt="Placeholder" className="w-16 h-16 object-cover rounded-full mx-auto" />
           <p className="text-base font-semibold">Voici quelques questions pour démarrer :</p>
           {exampleMessages.map((message, index) => (
             <Button

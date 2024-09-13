@@ -2,7 +2,12 @@ import HistoryContainer from './history-container'
 
 export async function Sidebar() {
   return (
-    <div className="h-screen p-2 fixed top-0 right-0 flex-col justify-center pb-24 hidden sm:flex">
+    <div className="h-screen p-2 fixed top-0 left-0 flex-col justify-center pb-24 hidden sm:flex">
+      <div className="flex flex-col items-center space-y-4">
+        <img src="/images/anne001.png" alt="Anne 1" className="w-32 h-32 object-cover" />
+        <img src="/images/anne001.png" alt="Anne 2" className="w-32 h-32 object-cover" />
+        <img src="/images/anne001.png" alt="Anne 3" className="w-32 h-32 object-cover" />
+      </div>
       <HistoryContainer location="sidebar" />
     </div>
   )

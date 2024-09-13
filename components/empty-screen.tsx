@@ -31,9 +31,9 @@ export function EmptyScreen({
     <div className={`mx-auto w-full transition-all ${className}`}>
       <div className="bg-background p-2">
         <div className="mt-4 flex flex-col items-start space-y-2 mb-4">
-          <img src="/images/placeholder-image.png" alt="Placeholder" className="w-16 h-16 object-cover rounded-full mx-auto" />
-          <p className="text-base font-semibold">Voici quelques questions pour démarrer :</p>
-          {exampleMessages.map((message, index) => (
+          <img src="/images/anne001.png" alt="Placeholder" className="w-64 h-64 object-cover rounded-full mx-auto" />
+                    <p className="text-sm font-semibold italic text-center">Je m'appelle Anne Kerdi. Je suis une passionnée de la Bretagne et je partage mes découvertes sur la vie locale, la culture, le patrimoine et la gastronomie de cette magnifique région.</p>
+                    {exampleMessages.map((message, index) => (
             <Button
               key={index}
               variant="link"

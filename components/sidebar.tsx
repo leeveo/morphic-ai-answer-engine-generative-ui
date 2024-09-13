@@ -3,18 +3,26 @@
 import { useEffect, useState } from 'react';
 import HistoryContainer from './history-container';
 
-async function fetchRandomImages() {
-  const response = await fetch('/api/images'); // Assurez-vous d'avoir une API qui retourne les noms de fichiers
-  const images = await response.json();
-  const shuffled = images.sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, 3);
+// Liste des noms de fichiers d'images dans le dossier public/images
+const imageFilenames = [
+  'image1.jpg',
+  'image2.jpg',
+  'image3.jpg',
+  'image4.jpg',
+  'image5.jpg'
+];
+
+function getRandomImages(imageArray: string[], count: number) {
+  const shuffled = imageArray.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
 }
 
 export function Sidebar() {
   const [randomImages, setRandomImages] = useState<string[]>([]);
 
   useEffect(() => {
-    fetchRandomImages().then(setRandomImages);
+    const images = getRandomImages(imageFilenames, 3);
+    setRandomImages(images);
   }, []);
 
   return (

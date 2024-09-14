@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import HistoryContainer from './history-container';
 
 // Fonction pour sélectionner 3 images aléatoires à partir d'une liste
-const getRandomImages = (imagesArray, num) => {
+const getRandomImages = (imagesArray: string[], num: number): string[] => {
   const shuffled = [...imagesArray].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, num);
 };
@@ -12,7 +12,7 @@ const getRandomImages = (imagesArray, num) => {
 export function Sidebar() {
   // URLs d'images dans le dossier externe
   const imageBaseURL = 'https://www.leeveo.tv/wp-content/uploads/2024/09/';
-  const imageList = [
+  const imageList: string[] = [
     'image001.jpg',
     'image002.jpg',
     'image003.jpg',
@@ -22,7 +22,7 @@ export function Sidebar() {
   ];
 
   // État pour stocker les images sélectionnées aléatoirement
-  const [randomImages, setRandomImages] = useState([]);
+  const [randomImages, setRandomImages] = useState<string[]>([]);
 
   // Utiliser useEffect pour sélectionner 3 images au chargement du composant
   useEffect(() => {

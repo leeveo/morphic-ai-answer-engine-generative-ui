@@ -80,7 +80,7 @@
   /* Sidebar styles */
   .sidebar-container {
     width: 100%; /* La sidebar occupe toute la largeur */
-    max-width: 450px; /* Limite la largeur de la sidebar */
+    /*max-width: 450px; /* Limite la largeur de la sidebar */
     height: 100%; /* Prend toute la hauteur de l'écran */
     box-sizing: border-box;
     padding: 1rem;

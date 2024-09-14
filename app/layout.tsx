@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { Sidebar } from '@/components/sidebar'
+import { RightSidebar } from '@/components/right-sidebar' // Importer la sidebar droite
 import { Toaster } from '@/components/ui/sonner'
 import { AppStateProvider } from '@/lib/utils/app-state'
 
@@ -57,8 +58,18 @@ export default function RootLayout({
         >
           <AppStateProvider>
             <Header />
-            {children}
-            <Sidebar />
+            <div className="flex">
+              {/* Sidebar gauche */}
+              <Sidebar />
+
+              {/* Contenu central */}
+              <main className="flex-1 ml-[300px] mr-[300px]">
+                {children}
+              </main>
+
+              {/* Sidebar droite */}
+              <RightSidebar />
+            </div>
             <Footer />
             <Toaster />
           </AppStateProvider>

@@ -3,7 +3,9 @@ import HistoryContainer from './history-container';
 export async function Sidebar() {
   return (
     <div className="h-screen p-2 fixed top-0 left-0 flex flex-col justify-center pb-24 hidden sm:flex sidebar-container" 
-         style={{ maxWidth: '100%', marginTop: '100px', width: '100%', maxWidth: '450px' }}>
+    style={{ marginTop: '100px', width: '100%', maxWidth: '450px' }}>
+
+
       <div className="flex flex-col items-center space-y-4 w-full">
         {/* Image 1 */}
         <img 

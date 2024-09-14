@@ -38,7 +38,10 @@ const Footer: React.FC = () => {
             </Link>
           </Button>
         </div>
-        <p className="mt-2 text-sm text-muted-foreground">Suivez moi sur les réseaux sociaux - Propulsé par adeliade.ai</p>
+        <p className="mt-2 text-xs text-muted-foreground">
+  Suivez moi sur les réseaux sociaux - Propulsé par adeliade.ai
+</p>
+
       </div>
     </footer>
   )

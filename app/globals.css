@@ -76,22 +76,4 @@
 }
 
 
-@layer components {
-  /* Sidebar styles */
-  .sidebar-container {
-    width: 100%; /* La sidebar occupe toute la largeur */
-    /*max-width: 450px; /* Limite la largeur de la sidebar */
-    height: 100%; /* Prend toute la hauteur de l'écran */
-    box-sizing: border-box;
-    padding: 1rem;
-  }
 
-  /* Styles pour rendre les images dans la sidebar responsive */
-  .sidebar-img {
-    width: 100%; /* Prend toute la largeur de la sidebar */
-    height: auto; /* Ajuste automatiquement la hauteur pour maintenir le ratio */
-    max-width: 100%;
-    object-fit: cover; /* Les images s'ajustent sans déformation */
-    border-radius: 8px; /* Optionnel : pour un effet d'arrondi */
-  }
-}

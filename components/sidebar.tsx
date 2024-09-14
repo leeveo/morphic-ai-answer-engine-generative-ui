@@ -9,7 +9,13 @@ export function Sidebar() {
   useEffect(() => {
     fetch('/random-images')
       .then(response => response.json())
-      .then(data => setImages(data));
+      .then(data => {
+        console.log('Images fetched:', data); // Log the fetched images
+        setImages(data);
+      })
+      .catch(error => {
+        console.error('Error fetching images:', error);
+      });
   }, []);
 
   return (

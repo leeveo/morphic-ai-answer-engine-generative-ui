@@ -7,8 +7,8 @@ import HistoryContainer from './history-container'
 export const Header: React.FC = async () => {
   return (
     <header
-      className="fixed w-full p-1 md:p-2 flex justify-between items-center z-10 backdrop-blur md:backdrop-blur-none bg-background/80 md:bg-transparent"
-      style={{ backgroundImage: 'url(/images/bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', height: '80px' }}
+      className="fixed w-full p-1 md:p-2 flex justify-between items-center z-10 backdrop-blur md:backdrop-blur-none bg-background/50 md:bg-transparent"
+      style={{ backgroundImage: 'url(/images/bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', height: '50px' }}
     >
       <div className="flex items-center">
         <a href="/">

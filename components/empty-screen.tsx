@@ -3,23 +3,22 @@ import { ArrowRight } from 'lucide-react'
 
 const exampleMessages = [
   {
-    heading: 'Quelle est ta plage bretonne préférée et pourquoi ?',
-    message: 'Quelle est ta plage bretonne préférée et pourquoi ?'
+    heading: 'What is GPT-4o mini?',
+    message: 'What is GPT-4o mini?'
   },
   {
-    heading: 'Quel plat traditionnel breton recommanderais-tu ?',
-    message: 'Quel plat traditionnel breton recommanderais-tu ?'
+    heading: 'Why is Nvidia growing rapidly?',
+    message: 'Why is Nvidia growing rapidly?'
   },
   {
-    heading: 'Quels événements ou festivals bretons recommandes-tu ?',
-    message: 'Quels événements ou festivals bretons recommandes-tu ?'
+    heading: 'How does the Vercel AI SDK work?',
+    message: 'How does the Vercel AI SDK work?'
   },
   {
-    heading: 'Quel est ton coin secret en Bretagne ?',
-    message: 'Quel est ton coin secret en Bretagne ?'
+    heading: 'Tesla vs Rivian',
+    message: 'Tesla vs Rivian'
   }
 ]
-
 export function EmptyScreen({
   submitMessage,
   className
@@ -31,9 +30,6 @@ export function EmptyScreen({
     <div className={`mx-auto w-full transition-all ${className}`}>
       <div className="bg-background p-2">
         <div className="mt-4 flex flex-col items-start space-y-2 mb-4">
-          <img src="/images/anne001.png" alt="Placeholder" className="w-64 h-64 object-cover rounded-full mx-auto" />
-          <p className="text-sm font-semibold italic text-center">Je m&apos;appelle Anne Kerdi. Je suis une passionnée de la Bretagne et je partage mes découvertes sur la vie locale, la culture, le patrimoine et la gastronomie de cette magnifique région.</p>
-          <p className="text-base font-semibold">Voici quelques questions pour démarrer :</p>
           {exampleMessages.map((message, index) => (
             <Button
               key={index}

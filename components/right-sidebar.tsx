@@ -24,7 +24,7 @@ export async function RightSidebar() {
           className="sidebar-img w-full h-auto object-cover"
         />
       </div>
-      <HistoryContainer location="right-sidebar" />
+      <HistoryContainer location="sidebar" /> {/* Utiliser simplement "sidebar" */}
     </div>
   );
 }

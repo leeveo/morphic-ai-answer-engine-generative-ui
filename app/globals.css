@@ -77,21 +77,21 @@
 
 
 @layer components {
-  /* Styles pour la Sidebar */
+  /* Sidebar styles */
   .sidebar-container {
-    width: 100%;
-    max-width: 450px; /* Taille maximale pour la sidebar */
-    height: 100%; /* S'adapte à la hauteur de l'écran */
+    width: 100%; /* La sidebar occupe toute la largeur */
+    max-width: 450px; /* Limite la largeur de la sidebar */
+    height: 100%; /* Prend toute la hauteur de l'écran */
     box-sizing: border-box;
-    padding: 1rem; /* Padding autour du contenu */
+    padding: 1rem;
   }
 
-  /* Styles pour rendre les images de la Sidebar responsives */
+  /* Styles pour rendre les images dans la sidebar responsive */
   .sidebar-img {
     width: 100%; /* Prend toute la largeur de la sidebar */
-    height: auto; /* Maintient le ratio d'aspect */
-    max-width: 100%; /* S'assure que l'image ne dépasse pas la largeur de son conteneur */
-    object-fit: cover; /* L'image s'ajuste sans distorsion */
-    border-radius: 8px; /* Optionnel : un peu d'arrondi pour le style */
+    height: auto; /* Ajuste automatiquement la hauteur pour maintenir le ratio */
+    max-width: 100%;
+    object-fit: cover; /* Les images s'ajustent sans déformation */
+    border-radius: 8px; /* Optionnel : pour un effet d'arrondi */
   }
 }

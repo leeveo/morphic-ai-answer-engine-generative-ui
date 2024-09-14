@@ -1,3 +1,5 @@
+"use client"; // Ajoutez cette ligne en haut du fichier
+
 import { useState, useEffect } from 'react';
 import HistoryContainer from './history-container';
 

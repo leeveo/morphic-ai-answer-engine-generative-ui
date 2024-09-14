@@ -1,7 +1,9 @@
+"use client";
+
 import React, { useEffect, useState } from 'react';
 import HistoryContainer from './history-container';
 
-export async function Sidebar() {
+export function Sidebar() {
   const [images, setImages] = useState<string[]>([]);
 
   useEffect(() => {

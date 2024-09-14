@@ -3,7 +3,7 @@ import { History } from './history'
 import { HistoryList } from './history-list'
 
 type HistoryContainerProps = {
-  type LocationType = 'header' | 'sidebar' | 'right-sidebar';
+  location: 'sidebar' | 'header' | 'right-sidebar'
 }
 
 const HistoryContainer: React.FC<HistoryContainerProps> = async ({

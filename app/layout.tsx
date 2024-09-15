@@ -1,7 +1,14 @@
+'use client'; // Indique que ce composant est un Client Component
+
 import { Sidebar } from '@/components/sidebar';
 import { RightSidebar } from '@/components/right-sidebar';
 import { SearchResultImage } from '@/lib/types';
 import { useEffect, useState } from 'react';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import { AppStateProvider } from '@/lib/utils/app-state';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Toaster } from '@/components/ui/sonner';
 
 export default function RootLayout({
   children

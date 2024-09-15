@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         {/* Image affichée uniquement sur les petits écrans */}
         <div className="block sm:hidden mb-4">
           <Image
-            src="/images/ton-image.png" // Chemin vers ton image dans le dossier public/images
+            src="/images/image001.jpg" // Chemin vers ton image dans le dossier public/images
             alt="Image pour les petits écrans"
             width={150} // Largeur de l'image (à ajuster)
             height={50} // Hauteur de l'image (à ajuster)

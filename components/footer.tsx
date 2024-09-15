@@ -14,8 +14,8 @@ const Footer: React.FC = () => {
           <Image
             src="/images/image001.jpg" // Chemin vers ton image dans le dossier public/images
             alt="Image pour les petits écrans"
-            width={150} // Largeur de l'image (à ajuster)
-            height={50} // Hauteur de l'image (à ajuster)
+            width={450} // Largeur de l'image (à ajuster)
+            height={270} // Hauteur de l'image (à ajuster)
             className="object-contain"
           />
         </div>

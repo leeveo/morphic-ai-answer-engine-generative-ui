@@ -50,7 +50,9 @@ export function SearchSection({ result, includeDomains }: SearchSectionProps) {
             </div>
           </div>
         </>
-      ) }
+      ) : (
+        
+      )}
     </div>
   );
 }

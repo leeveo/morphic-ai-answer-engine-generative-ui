@@ -8,16 +8,19 @@ import { RightSidebar } from '@/components/right-sidebar'
 import { SearchResultsImageSection } from '@/components/search-results-image'
 import { SearchSection } from '@/components/search-section'
 
+// Configuration de la police Google
 const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans'
 })
 
+// Métadonnées pour la page
 export const metadata: Metadata = {
   title: 'Adeliade',
   description: 'ChatBot de Anne Kerdi, passionnée de Bretagne, je partage mes découvertes.',
 }
 
+// Composant RootLayout
 export default function RootLayout({
   children
 }: {

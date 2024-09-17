@@ -2,13 +2,13 @@ import type { Metadata, Viewport } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
-import { ThemeProvider } from '@/components/theme-provider' // Vérifiez si le chemin est correct
-import Header from '@/components/header' // Assurez-vous que le chemin est correct
-import Footer from '@/components/footer' // Assurez-vous que le chemin est correct
-import { Sidebar } from '@/components/sidebar' // Assurez-vous que le chemin est correct
-import { RightSidebar } from '@/components/right-sidebar' // Assurez-vous que le chemin est correct
-import { Toaster } from '@/components/ui/sonner' // Assurez-vous que le chemin est correct
-import { AppStateProvider } from '@/lib/utils/app-state' // Vérifiez si le chemin est correct
+import { ThemeProvider } from '@/components/theme-provider'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
+import { Sidebar } from '@/components/sidebar'
+import { RightSidebar } from '@/components/right-sidebar' // Importer la sidebar droite
+import { Toaster } from '@/components/ui/sonner'
+import { AppStateProvider } from '@/lib/utils/app-state'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -43,11 +43,9 @@ export const viewport: Viewport = {
 }
 
 export default function RootLayout({
-  children,
-  result // Ajoutez result si nécessaire ici
+  children
 }: Readonly<{
   children: React.ReactNode
-  result?: any // Modifiez le type en fonction des données que vous attendez
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
@@ -63,7 +61,7 @@ export default function RootLayout({
             <div className="flex">
               {/* Sidebar gauche - Masquée sur petits écrans */}
               <div className="hidden lg:flex">
-                <Sidebar result={result} />
+                <Sidebar />
               </div>
 
               {/* Contenu central - S'ajuste aux marges sur grands écrans */}

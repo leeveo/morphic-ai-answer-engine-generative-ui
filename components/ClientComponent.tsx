@@ -7,7 +7,7 @@ export default function ClientComponent() {
   const [images, setImages] = useState([])
 
   // Exemple de fonction pour obtenir les résultats de recherche d'images dynamiques
-  const fetchImages = async (query) => {
+  const fetchImages = async (query: string) => {
     // Remplacez cette URL par l'URL de votre API ou service de recherche d'images
     const response = await fetch(`/api/search-images?query=${query}`)
     const data = await response.json()

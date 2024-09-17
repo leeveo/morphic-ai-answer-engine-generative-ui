@@ -55,7 +55,7 @@ export async function Sidebar() {
         <h2 className="text-center text-lg font-bold">Résultats de la recherche</h2>
         <div className="flex flex-wrap gap-2">
           {images.length === 0 ? (
-            <div className="text-muted-foreground">Pas d'images trouvées</div>
+            <div className="text-muted-foreground">Pas d&#39;images trouvées</div>
           ) : (
             images.slice(0, 4).map((image, index) => (
               <Dialog key={index}>

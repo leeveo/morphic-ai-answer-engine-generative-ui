@@ -1,12 +1,5 @@
-'use client';
-
-import HistoryContainer from './history-container';
-import { useStreamableValue } from 'ai/rsc';
-import { SearchResultsImageSection } from './search-results-image';
-import { Section } from './section';
-
-export async function Sidebar({ result }) {
-  const [data, error, pending] = useStreamableValue(result);
+export async function Sidebar({ result }: { result?: any }) {
+  const [data, error, pending] = useStreamableValue(result || null);
   const searchResults = data ? JSON.parse(data) : undefined;
 
   return (

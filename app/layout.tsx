@@ -5,8 +5,7 @@ import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
-import { Sidebar } from '@/components/sidebar'
-import { RightSidebar } from '@/components/right-sidebar' // Importer la sidebar droite
+import { RightSidebar } from '@/components/right-sidebar'
 import { Toaster } from '@/components/ui/sonner'
 import { AppStateProvider } from '@/lib/utils/app-state'
 
@@ -42,9 +41,8 @@ export const viewport: Viewport = {
   maximumScale: 1
 }
 
-
 import { SearchResultsImageSection } from '@/components/search-results-image';
-import { SearchSection } from '@/components/search-section'; // Import du composant SearchSection
+import { SearchSection } from '@/components/search-section'; // Ajout du composant SearchSection
 
 export default function RootLayout({
   children
@@ -52,45 +50,40 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" suppressHydrationWarning>
-      <body className={cn('font-sans antialiased', fontSans.variable)}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <AppStateProvider>
-            <Header />
-            <div className="flex">
-              
-              {/* Contenu central - Grille avec deux colonnes */}
-              <main className="flex gap-4 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] mx-auto">
-                
-                {/* Colonne 1 : Occupant 300px de largeur */}
-                <div className="w-[300px]">
-                  <SearchResultsImageSection images={/* Insérer les images dynamiques ici */} query="Votre requête" />
-                </div>
-
-                {/* Colonne 2 : Occupant 680px de largeur */}
-                <div className="w-[680px]">
-                  {/* Affichage du contenu de SearchSection dans la colonne droite */}
-                  <SearchSection result={/* Insérer le résultat de recherche ici */} includeDomains={['domain1.com', 'domain2.com']} />
-                  {children} {/* Vous pouvez garder cela si vous voulez un contenu supplémentaire */}
-                </div>
-
-              </main>
-
-              {/* Sidebar droite - Masquée sur petits écrans */}
-              <div className="hidden lg:flex mt-[50px]">
-                <RightSidebar />
-              </div>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <AppStateProvider>
+        <Header />
+        <div className="flex">
+          
+          {/* Contenu central - Grille avec deux colonnes */}
+          <main className="flex gap-4 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] mx-auto">
+            
+            {/* Colonne 1 : Occupant 300px de largeur */}
+            <div className="w-[300px]">
+              <SearchResultsImageSection images={/* Insérer les images dynamiques ici */} query="Votre requête" />
             </div>
-            <Footer />
-            <Toaster />
-          </AppStateProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+
+            {/* Colonne 2 : Occupant 680px de largeur */}
+            <div className="w-[680px]">
+              <SearchSection result={/* Insérer le résultat de recherche ici */} includeDomains={['domain1.com', 'domain2.com']} />
+              {children} {/* Vous pouvez garder cela si vous voulez un contenu supplémentaire */}
+            </div>
+
+          </main>
+
+          {/* Sidebar droite - Masquée sur petits écrans */}
+          <div className="hidden lg:flex mt-[50px]">
+            <RightSidebar />
+          </div>
+        </div>
+        <Footer />
+        <Toaster />
+      </AppStateProvider>
+    </ThemeProvider>
   )
 }

@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 import {
   BookCheck,
   Film,
-  Image as ImageIcon,
+  Image,
   MessageCircleMore,
   Newspaper,
   Repeat2,
@@ -31,11 +31,10 @@ export const Section: React.FC<SectionProps> = ({
   const iconSize = 16
   const iconClassName = 'mr-1.5 text-muted-foreground'
   let icon: React.ReactNode
-
-  // Icône en fonction du titre de la section
   switch (title) {
     case 'Images':
-      icon = <ImageIcon size={iconSize} className={iconClassName} />
+      // eslint-disable-next-line jsx-a11y/alt-text
+      icon = <Image size={iconSize} className={iconClassName} />
       break
     case 'Videos':
       icon = <Film size={iconSize} className={iconClassName} />
@@ -74,34 +73,5 @@ export const Section: React.FC<SectionProps> = ({
         {children}
       </section>
     </>
-  )
-}
-
-// Composant qui va gérer la mise en page avec deux colonnes
-export const ContentWithImagesLayout: React.FC<{ sections: SectionProps[] }> = ({ sections }) => {
-  return (
-    <div className="flex flex-col lg:flex-row">
-      {/* Colonne de gauche dédiée aux images */}
-      <div className="lg:w-1/4 p-4 max-h-screen overflow-y-auto border-r border-gray-200">
-        {sections
-          .filter((section) => section.title === 'Images')
-          .map((section, index) => (
-            <Section key={index} title={section.title} className={section.className} size={section.size} separator={section.separator}>
-              {section.children}
-            </Section>
-          ))}
-      </div>
-
-      {/* Colonne de droite dédiée aux autres contenus */}
-      <div className="lg:w-3/4 p-4 max-h-screen overflow-y-auto">
-        {sections
-          .filter((section) => section.title !== 'Images')
-          .map((section, index) => (
-            <Section key={index} title={section.title} className={section.className} size={section.size} separator={section.separator}>
-              {section.children}
-            </Section>
-          ))}
-      </div>
-    </div>
   )
 }

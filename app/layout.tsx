@@ -42,11 +42,17 @@ export const viewport: Viewport = {
   maximumScale: 1
 }
 
+import { SearchResultsImageSection } from '@/components/search-results-image';
+
 export default function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // Les images et la query doivent être passées en props ou récupérées via votre logique de données
+  const images = [/* Array d'images provenant des résultats de recherche */];
+  const query = 'Votre requête';
+
   return (
     <html lang="fr" suppressHydrationWarning>
       <body className={cn('font-sans antialiased', fontSans.variable)}>
@@ -62,15 +68,16 @@ export default function RootLayout({
               
               {/* Contenu central - Grille avec deux colonnes */}
               <main className="grid grid-cols-1 lg:grid-cols-3 gap-4 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] max-w-[760px] mx-auto">
-                {/* Colonne 1 : Occupant 2/3 de la largeur */}
+                {/* Colonne 1 : Occupant 2/3 de la largeur, Carrousel d'images */}
                 <div className="lg:col-span-2">
-                  {children}
+                  <SearchResultsImageSection images={images} query={query} />
                 </div>
 
-                {/* Colonne 2 : Occupant 1/3 de la largeur */}
+                {/* Colonne 2 : Occupant 1/3 de la largeur, autres informations */}
                 <div className="lg:col-span-1">
+                  {children}
                   {/* Contenu supplémentaire ici */}
-                  <p>Contenu de la deuxième colonne</p>
+                  <p>Autres informations à afficher ici</p>
                 </div>
               </main>
 
@@ -85,5 +92,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

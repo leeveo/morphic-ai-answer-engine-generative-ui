@@ -66,12 +66,12 @@ export default function RootLayout({
               <main className="flex gap-4 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] mx-auto">
                 
                 {/* Colonne 1 : Occupant 300px de largeur */}
-                <div className="w-[480px]">
+                <div className="w-[300px]">
                   <p>Contenu de la première colonne (300px)</p>
                 </div>
 
                 {/* Colonne 2 : Occupant 680px de largeur */}
-                <div className="w-[780px]">
+                <div className="w-[680px]">
                   {children}
                 </div>
 

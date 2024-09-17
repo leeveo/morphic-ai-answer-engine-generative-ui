@@ -1,3 +1,5 @@
+'use client'; // Indique que ce composant doit être rendu côté client
+
 import { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';

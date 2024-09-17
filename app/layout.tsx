@@ -1,5 +1,3 @@
-'use client'
-
 import type { Viewport } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
@@ -11,9 +9,8 @@ import { Sidebar } from '@/components/sidebar'
 import { RightSidebar } from '@/components/right-sidebar'
 import { Toaster } from '@/components/ui/sonner'
 import { AppStateProvider } from '@/lib/utils/app-state'
-import { SearchResultsImageSection } from '@/components/search-results-image'
-import { useEffect, useState } from 'react'
 import { metadata } from './metadata' // Importer les métadonnées
+import ClientComponent from '@/components/ClientComponent' // Importer le composant client
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -28,21 +25,6 @@ export const viewport: Viewport = {
 }
 
 export default function Layout({ children }) {
-  const [images, setImages] = useState([])
-
-  // Exemple de fonction pour obtenir les résultats de recherche d'images dynamiques
-  const fetchImages = async (query) => {
-    // Remplacez cette URL par l'URL de votre API ou service de recherche d'images
-    const response = await fetch(`/api/search-images?query=${query}`)
-    const data = await response.json()
-    setImages(data.images)
-  }
-
-  useEffect(() => {
-    // Exemple de requête de recherche d'images
-    fetchImages('example query')
-  }, [])
-
   return (
     <AppStateProvider>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
@@ -50,7 +32,7 @@ export default function Layout({ children }) {
           <Header />
           <div className="flex">
             <Sidebar>
-              <SearchResultsImageSection images={images} query="Example Query" /> {/* Ajoutez le carrousel d'images ici */}
+              <ClientComponent /> {/* Utiliser le composant client ici */}
             </Sidebar>
             <main className="flex-1">
               {children}

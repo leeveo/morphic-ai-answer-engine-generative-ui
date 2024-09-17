@@ -49,11 +49,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // Ici, les images doivent être chargées dynamiquement à partir de votre logique de recherche
-  // Utilisez votre propre logique pour charger les images (via une API, state global, etc.)
-  const images = [/* Les images dynamiques seront passées ici */];
-  const query = 'Votre requête de recherche'; // La requête peut être dynamique également
-
   return (
     <html lang="fr" suppressHydrationWarning>
       <body className={cn('font-sans antialiased', fontSans.variable)}>
@@ -71,14 +66,14 @@ export default function RootLayout({
               <main className="grid grid-cols-1 lg:grid-cols-3 gap-4 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] max-w-[760px] mx-auto">
                 {/* Colonne 1 : Occupant 2/3 de la largeur */}
                 <div className="lg:col-span-2">
-                <SearchResultsImageSection images={images} query={query} />
-                 
+                <p>Contenu de la deuxième colonne</p>
                 </div>
 
-                {/* Colonne 2 : Occupant 1/3 de la largeur, Carrousel d'images */}
+                {/* Colonne 2 : Occupant 1/3 de la largeur */}
                 <div className="lg:col-span-1">
-                  {/* Intégrer le carrousel d'images dans la deuxième colonne */}
+                  {/* Contenu supplémentaire ici */}
                   {children}
+                  
                 </div>
               </main>
 
@@ -93,5 +88,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

@@ -1,3 +1,5 @@
+'use client'; // Ajoutez ceci au tout début du fichier pour activer le rendu client
+
 import type { Metadata, Viewport } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 import './globals.css'

@@ -67,7 +67,7 @@ export default function RootLayout({
                 
                 {/* Colonne 1 : Occupant 300px de largeur */}
                 <div className="w-[300px]">
-                  <p>Contenu de la première colonne (420px)</p>
+                  <p>Contenu de la première colonne (620px)</p>
                 </div>
 
                 {/* Colonne 2 : Occupant 680px de largeur */}

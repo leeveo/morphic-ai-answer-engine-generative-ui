@@ -59,11 +59,7 @@ export default function RootLayout({
           <AppStateProvider>
             <Header />
             <div className="flex">
-              {/* Sidebar gauche - Masquée sur petits écrans */}
-              <div className="hidden lg:flex">
-                <Sidebar />
-              </div>
-
+              
               {/* Contenu central - S'ajuste aux marges sur grands écrans */}
               <main className="flex-1 ml-0 lg:ml-[300px] mr-0 lg:mr-[300px] w-full">
                 {children}

@@ -44,26 +44,31 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
-  const searchSectionProps = {
-    result: undefined, // votre valeur StreamableValue ici
-    includeDomains: [] // vos domaines ici
-  };
-
+}>) {
   return (
-    <html lang="en">
-      <body className={cn(fontSans.variable, 'font-sans')}>
-        <ThemeProvider>
+    <html lang="fr" suppressHydrationWarning>
+      <body className={cn('font-sans antialiased', fontSans.variable)}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <AppStateProvider>
             <Header />
-            <div className="main-layout">
-              <Sidebar searchSectionProps={searchSectionProps} />
-              <main className="content">
+            <div className="flex">
+              
+              {/* Contenu central - Espacement de 10px à gauche, 50px en haut, largeur max de 760px, centré */}
+              <main className="flex-1 ml-[10px] mr-0 lg:mr-[10px] mt-[50px] max-w-[760px] mx-auto">
                 {children}
               </main>
-              <RightSidebar />
+
+              {/* Sidebar droite - Masquée sur petits écrans */}
+              <div className="hidden lg:flex mt-[50px]">
+                <RightSidebar />
+              </div>
             </div>
             <Footer />
             <Toaster />

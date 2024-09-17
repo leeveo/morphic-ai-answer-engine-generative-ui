@@ -74,34 +74,6 @@
     @apply bg-background text-foreground;
   }
 }
-/* globals.css */
-.main-layout {
-  display: flex;
-}
 
-.sidebar {
-  width: 550px;
-  overflow-y: auto; /* Permettre le défilement si nécessaire */
-  padding: 10px; /* Ajouter du padding pour un meilleur espacement */
-  box-sizing: border-box; /* Assurer que le padding est inclus dans la largeur totale */
-  /* autres styles pour la sidebar */
-}
 
-.content {
-  flex-grow: 1;
-  padding: 10px; /* Ajouter du padding pour un meilleur espacement */
-  max-width: 450px; /* Limiter la largeur maximale du contenu */
-  box-sizing: border-box; /* Assurer que le padding est inclus dans la largeur totale */
-  /* autres styles pour le contenu principal */
-}
 
-.section {
-  margin-bottom: 1rem;
-}
-
-.section img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}

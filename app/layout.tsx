@@ -9,9 +9,10 @@ import { RightSidebar } from '@/components/right-sidebar' // Importer la sidebar
 import { Toaster } from '@/components/ui/sonner'
 import { AppStateProvider } from '@/lib/utils/app-state'
 import { SearchResultsImageSection } from '@/components/search-results-image';  // Assurez-vous que le chemin est correct
-import ChatPanel from '@/components/chat-panel';  // Assurez-vous que le chemin est correct
-import SearchResultsSection from '@/components/search-section';  // Assurez-vous que le chemin est correct
-import AnswerSection from '@/components/answer-section';  // Assurez-vous que le chemin est correct
+import { ChatPanel } from '@/components/chat-panel'; 
+import { SearchResultsSection } from '@/components/search-section';  // Utiliser des accolades pour un export nommé
+import { AnswerSection } from '@/components/answer-section';  // Utiliser des accolades pour un export nommé
+
 
 
 const fontSans = FontSans({

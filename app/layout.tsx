@@ -61,12 +61,13 @@ export default function RootLayout({
 
               {/* Sidebar gauche avec 300px de largeur */}
               <div className="hidden lg:flex mt-[50px]">
-                <LeftSidebar result={undefined} includeDomains={['google.com']} />
+                <LeftSidebar result={undefined} includeDomains={['example.com']} />
               </div>
 
               {/* Contenu central - Grille avec deux colonnes */}
               <main className="flex-1 gap-4 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] mx-auto">
-                {children}
+               
+                <LeftSidebar />
               </main>
 
               {/* Sidebar droite - Masquée sur petits écrans */}

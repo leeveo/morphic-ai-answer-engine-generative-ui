@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://adeliade.ai'),
   title,
   description,
-  open: {
+  openGraph: {
     title,
     description
   },
@@ -48,8 +48,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const searchSectionProps = {
-    result: /* votre valeur StreamableValue ici */,
-    includeDomains: /* vos domaines ici */
+    result: undefined, // votre valeur StreamableValue ici
+    includeDomains: [] // vos domaines ici
   };
 
   return (

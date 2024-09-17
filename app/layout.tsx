@@ -10,8 +10,6 @@ import { Sidebar } from '@/components/sidebar';
 import { RightSidebar } from '@/components/right-sidebar';
 import { Toaster } from '@/components/ui/sonner';
 import { AppStateProvider } from '@/lib/utils/app-state';
-import { metadata } from './metadata';
-import ClientComponent from '@/components/ClientComponent';
 
 const fontSans = FontSans({
   subsets: ['latin'],

@@ -1,4 +1,4 @@
-import Section from './section';
+import SectionContainer from './section';
 
 export async function Sidebar() {
   return (

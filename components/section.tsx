@@ -32,10 +32,9 @@ export const Section: React.FC<SectionProps> = ({
   const iconClassName = 'mr-1.5 text-muted-foreground'
   let icon: React.ReactNode
 
-  // Choix de l'icône en fonction du titre
+  // Icône en fonction du titre de la section
   switch (title) {
     case 'Images':
-      // eslint-disable-next-line jsx-a11y/alt-text
       icon = <ImageIcon size={iconSize} className={iconClassName} />
       break
     case 'Videos':
@@ -78,12 +77,12 @@ export const Section: React.FC<SectionProps> = ({
   )
 }
 
-// Composant qui va organiser les sections en colonnes
+// Composant qui va gérer la mise en page avec deux colonnes
 export const ContentWithImagesLayout: React.FC<{ sections: SectionProps[] }> = ({ sections }) => {
   return (
     <div className="flex flex-col lg:flex-row">
-      {/* Colonne de gauche : seulement la section "Images" */}
-      <div className="lg:w-1/4 p-4 max-h-screen overflow-y-auto">
+      {/* Colonne de gauche dédiée aux images */}
+      <div className="lg:w-1/4 p-4 max-h-screen overflow-y-auto border-r border-gray-200">
         {sections
           .filter((section) => section.title === 'Images')
           .map((section, index) => (
@@ -93,7 +92,7 @@ export const ContentWithImagesLayout: React.FC<{ sections: SectionProps[] }> = (
           ))}
       </div>
 
-      {/* Colonne de droite : autres sections */}
+      {/* Colonne de droite dédiée aux autres contenus */}
       <div className="lg:w-3/4 p-4 max-h-screen overflow-y-auto">
         {sections
           .filter((section) => section.title !== 'Images')

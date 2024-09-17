@@ -1,59 +1,75 @@
-import React, { ReactNode } from 'react';
-import type { Viewport } from 'next';
-import { Inter as FontSans } from 'next/font/google';
-import './globals.css';
-import { cn } from '@/lib/utils';
-import { ThemeProvider } from '@/components/theme-provider';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
-import { Sidebar } from '@/components/sidebar';
-import { RightSidebar } from '@/components/right-sidebar';
-import { Toaster } from '@/components/ui/sonner';
-import { AppStateProvider } from '@/lib/utils/app-state';
+import type { Metadata, Viewport } from 'next'
+import { Inter as FontSans } from 'next/font/google'
+import './globals.css'
+import { cn } from '@/lib/utils'
+import { ThemeProvider } from '@/components/theme-provider'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
+import { Sidebar } from '@/components/sidebar'
+import { RightSidebar } from '@/components/right-sidebar' // Importer la sidebar droite
+import { Toaster } from '@/components/ui/sonner'
+import { AppStateProvider } from '@/lib/utils/app-state'
 
 const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans'
-});
+})
+
+const title = 'Adeliade'
+const description =
+  'ChatBot de Anne Kerdi, passionnee de Bretagne, je partage mes decouvertes.'
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://adeliade.ai'),
+  title,
+  description,
+  openGraph: {
+    title,
+    description
+  },
+  twitter: {
+    title,
+    description,
+    card: 'summary_large_image',
+    creator: '@leeveo'
+  }
+}
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   minimumScale: 1,
   maximumScale: 1
-};
-
-interface LayoutProps {
-  children: ReactNode;
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function RootLayout({
+  children
+}: {
+  children: React.ReactNode
+}) {
+  const searchSectionProps = {
+    result: /* votre valeur StreamableValue ici */,
+    includeDomains: /* vos domaines ici */
+  };
+
   return (
-    <AppStateProvider>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <div className={cn('min-h-screen bg-gray-100 font-sans', fontSans.variable)}>
-          <Header />
-          <div className="flex">
-            <Sidebar>
-              <div className="col-span-1">
-                {/* Composants de la colonne de gauche */}
-                <ClientComponent />
-                {/* Ajoutez d'autres composants ici */}
-              </div>
-              <div className="col-span-1">
-                {/* Composants de la colonne de droite */}
-                {/* Ajoutez d'autres composants ici */}
-              </div>
-            </Sidebar>
-            <main className="flex-1">
-              {children}
-            </main>
-            <RightSidebar />
-          </div>
-          <Footer />
-          <Toaster />
-        </div>
-      </ThemeProvider>
-    </AppStateProvider>
-  );
+    <html lang="en">
+      <body className={cn(fontSans.variable, 'font-sans')}>
+        <ThemeProvider>
+          <AppStateProvider>
+            <Header />
+            <div className="main-layout">
+              <Sidebar searchSectionProps={searchSectionProps} />
+              <main className="content">
+                {children}
+              </main>
+              <RightSidebar />
+            </div>
+            <Footer />
+            <Toaster />
+          </AppStateProvider>
+        </ThemeProvider>
+      </body>
+    </html>
+  )
 }

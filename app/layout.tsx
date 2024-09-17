@@ -8,6 +8,11 @@ import Footer from '@/components/footer'
 import { RightSidebar } from '@/components/right-sidebar' // Importer la sidebar droite
 import { Toaster } from '@/components/ui/sonner'
 import { AppStateProvider } from '@/lib/utils/app-state'
+import { SearchResultsImageSection } from '@/components/search-results-image';  // Assurez-vous que le chemin est correct
+import ChatPanel from '@/components/chat-panel';  // Assurez-vous que le chemin est correct
+import SearchResultsSection from '@/components/search-section';  // Assurez-vous que le chemin est correct
+import AnswerSection from '@/components/answer-section';  // Assurez-vous que le chemin est correct
+
 
 const fontSans = FontSans({
   subsets: ['latin'],

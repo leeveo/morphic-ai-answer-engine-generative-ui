@@ -42,37 +42,28 @@ export const viewport: Viewport = {
   maximumScale: 1
 }
 
+}
+
 export default function RootLayout({
   children
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="fr" suppressHydrationWarning>
-      <body className={cn('font-sans antialiased', fontSans.variable)}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+    <html lang="fr">
+      <head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter&display=swap" />
+      </head>
+      <body className={cn(fontSans.variable, 'font-sans antialiased')}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <AppStateProvider>
             <Header />
-            <div className="flex">
-              {/* Sidebar gauche - Masquée sur petits écrans */}
-              <div className="hidden lg:flex">
-                <Sidebar />
-              </div>
-
-              {/* Contenu central - S'ajuste aux marges sur grands écrans */}
-              <main className="flex-1 ml-0 lg:ml-[300px] mr-0 lg:mr-[300px] w-full">
-                {children}
-              </main>
-
-              {/* Sidebar droite - Masquée sur petits écrans */}
-              <div className="hidden lg:flex">
-                <RightSidebar />
-              </div>
+            <div className="layout">
+              <Sidebar />
+              <main>{children}</main>
+              <RightSidebar /> {/* Ajout de la barre latérale droite */}
             </div>
             <Footer />
             <Toaster />

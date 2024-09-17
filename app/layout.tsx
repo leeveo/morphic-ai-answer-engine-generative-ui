@@ -12,7 +12,7 @@ import { SearchResultsImageSection } from '@/components/search-results-image';  
 import { ChatPanel } from '@/components/chat-panel'; 
 import { SearchResultsSection } from '@/components/search-section';  // Utiliser des accolades pour un export nommé
 import { AnswerSection } from '@/components/answer-section';  // Utiliser des accolades pour un export nommé
-
+import { SearchSection } from '@/components/search-section';
 
 
 const fontSans = FontSans({

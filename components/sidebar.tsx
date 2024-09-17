@@ -47,7 +47,7 @@ export async function Sidebar() {
   }, [api, selectedIndex]);
 
   if (!images || images.length === 0) {
-    return <div className="text-muted-foreground">Pas d'images trouvées</div>;
+    return <div className="text-muted-foreground">Pas d&#39;images trouvées</div>;
   }
 
   return (

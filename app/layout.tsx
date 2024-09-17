@@ -5,15 +5,10 @@ import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import { Sidebar } from '@/components/sidebar'
 import { RightSidebar } from '@/components/right-sidebar' // Importer la sidebar droite
 import { Toaster } from '@/components/ui/sonner'
 import { AppStateProvider } from '@/lib/utils/app-state'
-import { SearchResultsImageSection } from '@/components/search-results-image';  // Assurez-vous que le chemin est correct
-import { ChatPanel } from '@/components/chat-panel'; 
-import { SearchResultsSection } from '@/components/search-section';  // Utiliser des accolades pour un export nommé
-import { AnswerSection } from '@/components/answer-section';  // Utiliser des accolades pour un export nommé
-import { SearchSection } from '@/components/search-section';
-
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -47,7 +42,11 @@ export const viewport: Viewport = {
   maximumScale: 1
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
     <html lang="fr" suppressHydrationWarning>
       <body className={cn('font-sans antialiased', fontSans.variable)}>
@@ -60,23 +59,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <AppStateProvider>
             <Header />
             <div className="flex">
-              {/* Contenu central divisé en deux colonnes */}
-              <main className="flex flex-col lg:flex-row w-full">
-                {/* Colonne de gauche - Images */}
-                <div className="w-full lg:w-1/2 p-4">
-                  <SearchResultsImageSection images={images} query={query} />
-                </div>
+              {/* Sidebar gauche - Masquée sur petits écrans */}
+              <div className="hidden lg:flex">
+                <Sidebar />
+              </div>
 
-                {/* Colonne de droite - Autres composants */}
-                <div className="w-full lg:w-1/2 p-4">
-                  {children}
-                  <ChatPanel />
-                  <SearchResultsSection />
-                  <AnswerSection />
-                </div>
+              {/* Contenu central - S'ajuste aux marges sur grands écrans */}
+              <main className="flex-1 ml-0 lg:ml-[300px] mr-0 lg:mr-[300px] w-full">
+                {children}
               </main>
 
-              {/* Sidebar droite */}
+              {/* Sidebar droite - Masquée sur petits écrans */}
               <div className="hidden lg:flex">
                 <RightSidebar />
               </div>
@@ -87,5 +80,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

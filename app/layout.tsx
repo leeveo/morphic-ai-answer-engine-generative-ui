@@ -61,7 +61,7 @@ export default function RootLayout({
             <div className="flex">
               
               {/* Contenu central - Espacement de 10px à gauche, 50px en haut, largeur max de 760px, centré */}
-              <main className="flex-1 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] max-w-[760px] mx-auto">
+              <main className="flex-1 ml-[10px] mr-0 lg:mr-[10px] mt-[50px] max-w-[760px] mx-auto">
                 {children}
               </main>
 

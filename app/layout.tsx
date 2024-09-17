@@ -1,23 +1,22 @@
-import type { Metadata, Viewport } from 'next'
-import { Inter as FontSans } from 'next/font/google'
-import './globals.css'
-import { cn } from '@/lib/utils'
-import { ThemeProvider } from '@/components/theme-provider'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
-import { Sidebar } from '@/components/sidebar'
-import { RightSidebar } from '@/components/right-sidebar' // Importer la sidebar droite
-import { Toaster } from '@/components/ui/sonner'
-import { AppStateProvider } from '@/lib/utils/app-state'
+import type { Metadata, Viewport } from 'next';
+import { Inter as FontSans } from 'next/font/google';
+import './globals.css';
+import { cn } from '@/lib/utils';
+import { ThemeProvider } from '@/components/theme-provider';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import { RightSidebar } from '@/components/right-sidebar'; // Sidebar droite
+import { Toaster } from '@/components/ui/sonner';
+import { AppStateProvider } from '@/lib/utils/app-state';
+import { LeftSidebar } from '@/components/left-sidebar'; // Sidebar gauche
 
 const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans'
-})
+});
 
-const title = 'Adeliade'
-const description =
-  'ChatBot de Anne Kerdi, passionnee de Bretagne, je partage mes decouvertes.'
+const title = 'Adeliade';
+const description = 'ChatBot de Anne Kerdi, passionnee de Bretagne, je partage mes decouvertes.';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://adeliade.ai'),
@@ -33,21 +32,19 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     creator: '@leeveo'
   }
-}
+};
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   minimumScale: 1,
   maximumScale: 1
-}
-
-import { SearchResultsImageSection } from '@/components/search-results-image';
+};
 
 export default function RootLayout({
   children
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
@@ -61,20 +58,15 @@ export default function RootLayout({
           <AppStateProvider>
             <Header />
             <div className="flex">
-              
+
+              {/* Sidebar gauche avec 300px de largeur */}
+              <div className="hidden lg:flex mt-[50px]">
+                <LeftSidebar result={undefined} includeDomains={['example.com']} />
+              </div>
+
               {/* Contenu central - Grille avec deux colonnes */}
-              <main className="flex gap-4 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] mx-auto">
-                
-                {/* Colonne 1 : Occupant 300px de largeur */}
-                <div className="w-[300px]">
-                  <p>Contenu de la première colonne (400px)</p>
-                </div>
-
-                {/* Colonne 2 : Occupant 680px de largeur */}
-                <div className="w-[680px]">
-                  {children}
-                </div>
-
+              <main className="flex-1 gap-4 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] mx-auto">
+                {children}
               </main>
 
               {/* Sidebar droite - Masquée sur petits écrans */}
@@ -88,5 +80,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

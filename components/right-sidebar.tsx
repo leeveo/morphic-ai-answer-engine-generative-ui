@@ -2,7 +2,7 @@ import React from 'react';
 import { SearchSection } from './search-section';
 
 const RightSidebar = () => {
-  const result = // Obtenez vos données streamables ici
+  const result = []; // Remplacez ceci par vos données streamables
   const includeDomains = ['example.com', 'anotherdomain.com'];
 
   return (

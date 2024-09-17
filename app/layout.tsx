@@ -42,7 +42,9 @@ export const viewport: Viewport = {
   maximumScale: 1
 }
 
+
 import { SearchResultsImageSection } from '@/components/search-results-image';
+import { SearchSection } from '@/components/search-section'; // Import du composant SearchSection
 
 export default function RootLayout({
   children
@@ -66,13 +68,15 @@ export default function RootLayout({
               <main className="flex gap-4 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] mx-auto">
                 
                 {/* Colonne 1 : Occupant 300px de largeur */}
-                <div className="w-[480px]">
-                  <p>Contenu de la première colonne (300px)</p>
+                <div className="w-[300px]">
+                  <SearchResultsImageSection images={/* Insérer les images dynamiques ici */} query="Votre requête" />
                 </div>
 
                 {/* Colonne 2 : Occupant 680px de largeur */}
-                <div className="w-[780px]">
-                  {children}
+                <div className="w-[680px]">
+                  {/* Affichage du contenu de SearchSection dans la colonne droite */}
+                  <SearchSection result={/* Insérer le résultat de recherche ici */} includeDomains={['domain1.com', 'domain2.com']} />
+                  {children} {/* Vous pouvez garder cela si vous voulez un contenu supplémentaire */}
                 </div>
 
               </main>

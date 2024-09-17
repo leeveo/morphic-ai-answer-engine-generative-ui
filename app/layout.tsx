@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { Sidebar } from '@/components/sidebar'
-import { RightSidebar } from '@/components/right-sidebar' // Importer la sidebar droite
+import RightSidebar from '@/components/right-sidebar'; // Importer la sidebar droite par défaut
 import { Toaster } from '@/components/ui/sonner'
 import { AppStateProvider } from '@/lib/utils/app-state'
 

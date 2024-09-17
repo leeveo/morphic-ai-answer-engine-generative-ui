@@ -79,7 +79,7 @@ export default function RootLayout({
 
               {/* Sidebar droite - Masquée sur petits écrans */}
               <div className="hidden lg:flex mt-[50px]">
-                <RightSidebar />
+                <Sidebar />
               </div>
             </div>
             <Footer />

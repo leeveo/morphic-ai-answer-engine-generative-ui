@@ -19,16 +19,8 @@ export const ToolBadge: React.FC<ToolBadgeProps> = ({
 
   return (
     <Badge className={className} variant={'secondary'}>
-      <div className="flex justify-between items-center w-full">
-        {/* Colonne pour l'icône */}
-        <div className="w-1/2 flex items-center">
-          {icon[tool]}
-        </div>
-        {/* Colonne pour le texte */}
-        <div className="w-1/2">
-          <span className="ml-1">{children}</span>
-        </div>
-      </div>
+      {icon[tool]}
+      <span className="ml-1">{children}</span>
     </Badge>
   )
 }

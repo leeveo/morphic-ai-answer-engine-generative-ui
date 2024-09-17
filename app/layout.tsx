@@ -41,11 +41,7 @@ export const viewport: Viewport = {
   maximumScale: 1
 }
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" suppressHydrationWarning>
       <body className={cn('font-sans antialiased', fontSans.variable)}>
@@ -58,25 +54,23 @@ export default function RootLayout({
           <AppStateProvider>
             <Header />
             <div className="flex">
-              {/* Contenu central - Prend toute la largeur sans la sidebar gauche */}
+              {/* Contenu central divisé en deux colonnes */}
               <main className="flex flex-col lg:flex-row w-full">
-  {/* Colonne de gauche - Affichage des images */}
-  <div className="w-full lg:w-1/2 p-4">
-    <SearchResultsImageSection images={images} query={query} />
-  </div>
+                {/* Colonne de gauche - Images */}
+                <div className="w-full lg:w-1/2 p-4">
+                  <SearchResultsImageSection images={images} query={query} />
+                </div>
 
-  {/* Colonne de droite - Chatbot et autres contenus */}
-  <div className="w-full lg:w-1/2 p-4">
-    {children}
-    {/* Ajoutez ici les autres composants, par exemple le chatbot */}
-    <ChatPanel />
-    <SearchResultsSection />
-    <AnswerSection />
-  </div>
-</main>
+                {/* Colonne de droite - Autres composants */}
+                <div className="w-full lg:w-1/2 p-4">
+                  {children}
+                  <ChatPanel />
+                  <SearchResultsSection />
+                  <AnswerSection />
+                </div>
+              </main>
 
-
-              {/* Sidebar droite - Masquée sur petits écrans */}
+              {/* Sidebar droite */}
               <div className="hidden lg:flex">
                 <RightSidebar />
               </div>
@@ -87,5 +81,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

@@ -44,14 +44,17 @@ export const viewport: Viewport = {
 
 import { SearchResultsImageSection } from '@/components/search-results-image';
 
+import { SearchResultsImageSection } from '@/components/search-results-image';
+
 export default function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // Les images et la query doivent être passées en props ou récupérées via votre logique de données
-  const images = [/* Array d'images provenant des résultats de recherche */];
-  const query = 'Votre requête';
+  // Ici, les images doivent être chargées dynamiquement à partir de votre logique de recherche
+  // Utilisez votre propre logique pour charger les images (via une API, state global, etc.)
+  const images = [/* Les images dynamiques seront passées ici */];
+  const query = 'Votre requête de recherche'; // La requête peut être dynamique également
 
   return (
     <html lang="fr" suppressHydrationWarning>
@@ -68,16 +71,15 @@ export default function RootLayout({
               
               {/* Contenu central - Grille avec deux colonnes */}
               <main className="grid grid-cols-1 lg:grid-cols-3 gap-4 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] max-w-[760px] mx-auto">
-                {/* Colonne 1 : Occupant 2/3 de la largeur, Carrousel d'images */}
+                {/* Colonne 1 : Occupant 2/3 de la largeur */}
                 <div className="lg:col-span-2">
-                  <SearchResultsImageSection images={images} query={query} />
+                  {children}
                 </div>
 
-                {/* Colonne 2 : Occupant 1/3 de la largeur, autres informations */}
+                {/* Colonne 2 : Occupant 1/3 de la largeur, Carrousel d'images */}
                 <div className="lg:col-span-1">
-                  {children}
-                  {/* Contenu supplémentaire ici */}
-                  <p>Autres informations à afficher ici</p>
+                  {/* Intégrer le carrousel d'images dans la deuxième colonne */}
+                  <SearchResultsImageSection images={images} query={query} />
                 </div>
               </main>
 

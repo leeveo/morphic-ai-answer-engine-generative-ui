@@ -1,3 +1,12 @@
+import { SearchResultsImage } from './search-results-image';
+import { SearchRelated } from './search-related';
+import { SearchResults } from './search-results';
+import { SearchSection } from './search-section';
+import { AnswerSection } from './answer-section';
+import { AnswerSectionGenerated } from './answer-section-generated';
+import { ChatMessages } from './chat-messages';
+
+
 export default function Layout() {
   return (
     <div className="grid grid-cols-2 gap-4 h-screen">

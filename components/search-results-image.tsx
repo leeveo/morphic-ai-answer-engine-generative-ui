@@ -1,57 +1,75 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import { Card, CardContent } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { useEffect, useState } from 'react';
-import { PlusCircle } from 'lucide-react';
-import { SearchResultImage } from '@/lib/types';
+import { Card, CardContent } from '@/components/ui/card'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from '@/components/ui/dialog'
+import {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel'
+import { useEffect, useState } from 'react'
+import { PlusCircle } from 'lucide-react'
+import { SearchResultImage } from '@/lib/types'
 
 interface SearchResultsImageSectionProps {
-  images: SearchResultImage[];
-  query?: string;
+  images: SearchResultImage[]
+  query?: string
 }
 
-export const SearchResultsImageSection: React.FC<SearchResultsImageSectionProps> = ({ images, query }) => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+export const SearchResultsImageSection: React.FC<
+  SearchResultsImageSectionProps
+> = ({ images, query }) => {
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+  const [count, setCount] = useState(0)
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
   // Update the current and count state when the carousel api is available
   useEffect(() => {
     if (!api) {
-      return;
+      return
     }
 
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap() + 1)
 
     api.on('select', () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-  }, [api]);
+      setCurrent(api.selectedScrollSnap() + 1)
+    })
+  }, [api])
 
   // Scroll to the selected index
   useEffect(() => {
     if (api) {
-      api.scrollTo(selectedIndex, true);
+      api.scrollTo(selectedIndex, true)
     }
-  }, [api, selectedIndex]);
+  }, [api, selectedIndex])
 
   if (!images || images.length === 0) {
-    return <div className="text-muted-foreground">Pas d&#39;images trouvées</div>;
+    return <div className="text-muted-foreground">Pas d images trouvee</div>
   }
 
-  let convertedImages: { url: string; description: string }[] = [];
+  // If enabled the include_images_description is true, the images will be an array of { url: string, description: string }
+  // Otherwise, the images will be an array of strings
+  let convertedImages: { url: string; description: string }[] = []
   if (typeof images[0] === 'string') {
-    convertedImages = (images as string[]).map((image) => ({
+    convertedImages = (images as string[]).map(image => ({
       url: image,
-      description: '',
-    }));
+      description: ''
+    }))
   } else {
-    convertedImages = images as { url: string; description: string }[];
+    convertedImages = images as { url: string; description: string }[]
   }
 
   return (
@@ -68,9 +86,11 @@ export const SearchResultsImageSection: React.FC<SearchResultsImageSectionProps>
                   {image ? (
                     <img
                       src={image.url}
-                      alt={`Image ${index + 1} d&#39;utilisateur`}
+                      alt={`Image ${index + 1}`}
                       className="h-full w-full object-cover"
-                      onError={(e) => (e.currentTarget.src = '/images/placeholder-image.png')}
+                      onError={e =>
+                        (e.currentTarget.src = '/images/placeholder-image.png')
+                      }
                     />
                   ) : (
                     <div className="w-full h-full bg-muted animate-pulse" />
@@ -90,16 +110,22 @@ export const SearchResultsImageSection: React.FC<SearchResultsImageSectionProps>
               <DialogDescription className="text-sm">{query}</DialogDescription>
             </DialogHeader>
             <div className="py-4">
-              <Carousel setApi={setApi} className="w-full bg-muted max-h-[60vh]">
+              <Carousel
+                setApi={setApi}
+                className="w-full bg-muted max-h-[60vh]"
+              >
                 <CarouselContent>
                   {convertedImages.map((img, idx) => (
                     <CarouselItem key={idx}>
                       <div className="p-1 flex items-center justify-center h-full">
                         <img
                           src={img.url}
-                          alt={`Image ${idx + 1} d&#39;utilisateur`}
+                          alt={`Image ${idx + 1}`}
                           className="h-auto w-full object-contain max-h-[60vh]"
-                          onError={(e) => (e.currentTarget.src = '/images/placeholder-image.png')}
+                          onError={e =>
+                            (e.currentTarget.src =
+                              '/images/placeholder-image.png')
+                          }
                         />
                       </div>
                     </CarouselItem>
@@ -107,7 +133,7 @@ export const SearchResultsImageSection: React.FC<SearchResultsImageSectionProps>
                 </CarouselContent>
                 <div className="absolute inset-8 flex items-center justify-between p-4">
                   <CarouselPrevious className="w-10 h-10 rounded-full shadow focus:outline-none">
-                    <span className="sr-only">Précédent</span>
+                    <span className="sr-only">Precedent</span>
                   </CarouselPrevious>
                   <CarouselNext className="w-10 h-10 rounded-full shadow focus:outline-none">
                     <span className="sr-only">Suivant</span>
@@ -122,5 +148,5 @@ export const SearchResultsImageSection: React.FC<SearchResultsImageSectionProps>
         </Dialog>
       ))}
     </div>
-  );
-};
+  )
+}

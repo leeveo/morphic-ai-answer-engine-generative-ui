@@ -42,20 +42,11 @@ export const viewport: Viewport = {
   maximumScale: 1
 }
 
-import { SearchResultsImageSection } from '@/components/search-results-image';
-
-import { SearchResultsImageSection } from '@/components/search-results-image';
-
 export default function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // Ici, les images doivent être chargées dynamiquement à partir de votre logique de recherche
-  // Utilisez votre propre logique pour charger les images (via une API, state global, etc.)
-  const images = [/* Les images dynamiques seront passées ici */];
-  const query = 'Votre requête de recherche'; // La requête peut être dynamique également
-
   return (
     <html lang="fr" suppressHydrationWarning>
       <body className={cn('font-sans antialiased', fontSans.variable)}>
@@ -76,10 +67,10 @@ export default function RootLayout({
                   {children}
                 </div>
 
-                {/* Colonne 2 : Occupant 1/3 de la largeur, Carrousel d'images */}
+                {/* Colonne 2 : Occupant 1/3 de la largeur */}
                 <div className="lg:col-span-1">
-                  {/* Intégrer le carrousel d'images dans la deuxième colonne */}
-                  <SearchResultsImageSection images={images} query={query} />
+                  {/* Contenu supplémentaire ici */}
+                  <p>Contenu de la deuxième colonne</p>
                 </div>
               </main>
 
@@ -94,5 +85,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

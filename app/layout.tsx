@@ -60,9 +60,18 @@ export default function RootLayout({
             <Header />
             <div className="flex">
               
-              {/* Contenu central - Espacement de 10px à gauche, 50px en haut, largeur max de 760px, centré */}
-              <main className="flex-1 ml-[10px] mr-0 lg:mr-[10px] mt-[50px] max-w-[760px] mx-auto">
-                {children}
+              {/* Contenu central - Grille avec deux colonnes */}
+              <main className="grid grid-cols-1 lg:grid-cols-3 gap-4 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] max-w-[760px] mx-auto">
+                {/* Colonne 1 : Occupant 2/3 de la largeur */}
+                <div className="lg:col-span-2">
+                  {children}
+                </div>
+
+                {/* Colonne 2 : Occupant 1/3 de la largeur */}
+                <div className="lg:col-span-1">
+                  {/* Contenu supplémentaire ici */}
+                  <p>Contenu de la deuxième colonne</p>
+                </div>
               </main>
 
               {/* Sidebar droite - Masquée sur petits écrans */}

@@ -1,3 +1,4 @@
+import React, { ReactNode } from 'react'
 import type { Viewport } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
@@ -24,7 +25,11 @@ export const viewport: Viewport = {
   maximumScale: 1
 }
 
-export default function Layout({ children }) {
+interface LayoutProps {
+  children: ReactNode
+}
+
+export default function Layout({ children }: LayoutProps) {
   return (
     <AppStateProvider>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

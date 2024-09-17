@@ -6,9 +6,11 @@ import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { Sidebar } from '@/components/sidebar'
-import { RightSidebar } from '@/components/right-sidebar' // Importer la sidebar droite
+import { RightSidebar } from '@/components/right-sidebar'
 import { Toaster } from '@/components/ui/sonner'
 import { AppStateProvider } from '@/lib/utils/app-state'
+import { SearchResultsImageSection } from '@/components/search-results-image'
+import { useEffect, useState } from 'react'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -42,51 +44,40 @@ export const viewport: Viewport = {
   maximumScale: 1
 }
 
-import { SearchResultsImageSection } from '@/components/search-results-image';
+export default function Layout({ children }) {
+  const [images, setImages] = useState([])
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+  // Exemple de fonction pour obtenir les résultats de recherche d'images dynamiques
+  const fetchImages = async (query) => {
+    // Remplacez cette URL par l'URL de votre API ou service de recherche d'images
+    const response = await fetch(`/api/search-images?query=${query}`)
+    const data = await response.json()
+    setImages(data.images)
+  }
+
+  useEffect(() => {
+    // Exemple de requête de recherche d'images
+    fetchImages('example query')
+  }, [])
+
   return (
-    <html lang="fr" suppressHydrationWarning>
-      <body className={cn('font-sans antialiased', fontSans.variable)}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <AppStateProvider>
-            <Header />
-            <div className="flex">
-              
-              {/* Contenu central - Grille avec deux colonnes */}
-              <main className="flex gap-4 ml-[10px] mr-0 lg:mr-[300px] mt-[50px] mx-auto">
-                
-                {/* Colonne 1 : Occupant 300px de largeur */}
-                <div className="w-[400px]">
-                  <p>Contenu de la première colonne (400px)</p>
-                </div>
-
-                {/* Colonne 2 : Occupant 680px de largeur */}
-                <div className="w-[680px]">
-                  {children}
-                </div>
-
-              </main>
-
-              {/* Sidebar droite - Masquée sur petits écrans */}
-              <div className="hidden lg:flex mt-[50px]">
-                <RightSidebar />
-              </div>
-            </div>
-            <Footer />
-            <Toaster />
-          </AppStateProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+    <AppStateProvider>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <div className={cn('min-h-screen bg-gray-100 font-sans', fontSans.variable)}>
+          <Header />
+          <div className="flex">
+            <Sidebar>
+              <SearchResultsImageSection images={images} query="Example Query" /> {/* Ajoutez le carrousel d'images ici */}
+            </Sidebar>
+            <main className="flex-1">
+              {children}
+            </main>
+            <RightSidebar />
+          </div>
+          <Footer />
+          <Toaster />
+        </div>
+      </ThemeProvider>
+    </AppStateProvider>
   )
 }

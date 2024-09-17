@@ -27,17 +27,28 @@ export function SearchSection({ result, includeDomains }: SearchSectionProps) {
           <Section size="sm" className="pt-2 pb-0">
             <ToolBadge tool="search">{`${searchResults?.query}${includeDomainsString}`}</ToolBadge>
           </Section>
-          {searchResults?.images && searchResults.images.length > 0 && (
-            <Section title="Images">
-              <SearchResultsImageSection
-                images={searchResults.images}
-                query={searchResults.query}
-              />
-            </Section>
-          )}
-          <Section title="Sources">
-            <SearchResults results={searchResults?.results} />
-          </Section>
+
+          {/* Mise en page en deux colonnes avec 1/3 et 2/3 de répartition */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
+            {/* Colonne 1 : Section des Images (1/3) */}
+            {searchResults?.images && searchResults.images.length > 0 && (
+              <div className="lg:col-span-1">
+                <Section title="Images">
+                  <SearchResultsImageSection
+                    images={searchResults.images}
+                    query={searchResults.query}
+                  />
+                </Section>
+              </div>
+            )}
+
+            {/* Colonne 2 : Section des Sources (2/3) */}
+            <div className={`lg:col-span-${searchResults?.images && searchResults.images.length > 0 ? '2' : '3'}`}>
+              <Section title="Sources">
+                <SearchResults results={searchResults?.results} />
+              </Section>
+            </div>
+          </div>
         </>
       ) : (
         <DefaultSkeleton />
